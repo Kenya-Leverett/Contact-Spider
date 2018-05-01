@@ -1,0 +1,53 @@
+#! /usr/bin/python3.5
+
+import re
+import pyperclip
+
+# TODO: Create regex for phone numbers
+phoneRegex = re.compile(r'''
+(
+((\d{3})|(\(\d{3}\)))?  #area code optional
+(\s|-|.)?
+\d{3}     # phone 3
+(\s|-|.)?
+\d{4}      #final 4
+(\s|-|.)?
+(\w{0,10}?\.?\s?     ext prepender     
+(\d{2,5}))?          #ext number
+)           
+        ''', re.VERBOSE)
+    #print('phone compile working')
+
+# TODO: Create regex for email addresses
+emailRegex = re.compile(r'''
+[a-zA-z0-9_.+]+
+@
+[a-zA-z0-9_.+]+
+         ''', re.VERBOSE|re.IGNORECASE)
+
+    #print('email compile working')
+
+# TODO: Get text off of document
+text = pyperclip.paste()
+text2 = pyperclip.paste()
+
+# TODO: Extract the email and phone from text
+extractedPhone = phoneRegex.findall(text)
+extractedEmail = emailRegex.findall(text2)
+    #print('\nfind all(s) working')
+
+# Make it pretty
+allPhones = []
+for phoneNumber in extractedPhone:
+    allPhones.append(phoneNumber[0])
+
+#Print results
+print('\n'.join(allPhones))
+print('\n'.join(extractedEmail))
+
+print('\nfinished! :)')
+
+
+# TODO: copy the extracted email/phone to the clipboard
+results= ('\n'.join(allPhones)+'\n'.join(extractedEmail))
+pyperclip.copy(results)
