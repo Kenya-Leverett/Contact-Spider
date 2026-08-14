@@ -2,7 +2,7 @@
 
 A lightweight Python utility that automatically scans text on your clipboard, extracts phone numbers and email addresses using regular expressions, and copies or outputs the clean results.
 
-Based on the classic automation project from *Automate the Boring Stuff with Python*, this script makes grabbing contact information from messy documents, emails, or web pages instantaneous.
+This script makes grabbing contact information from messy documents, emails, or web pages instantaneous.
 
 ## Features
 
