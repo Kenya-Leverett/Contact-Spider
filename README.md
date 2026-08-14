@@ -1,4 +1,4 @@
-# Phone & Email Extractor (Clipboard Scraper) (affectionately named sales spider)
+# Phone & Email Extractor (affectionately named Sales Spider)
 
 A lightweight Python utility that automatically scans text on your clipboard, extracts phone numbers and email addresses using regular expressions, and copies or outputs the clean results.
 
